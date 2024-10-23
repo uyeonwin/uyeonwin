@@ -114,7 +114,7 @@ while play:
                 elif stone == 2 :
                     board[y][x] = 2
                     stone = 1
-
+    print("hello world")
     background.blit(image_bg, (0,0))
     background.blit(image_omok[8], (cursor_x, cursor_y))
     draw_stone()
