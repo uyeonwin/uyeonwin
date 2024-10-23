@@ -2,7 +2,7 @@ import pygame
 
 pygame.init()
 
-background = pygame.display.set_mode((300,362))
+background = pygame.display.set_mode((700,762))
 pygame.display.set_caption("omok")
 
 #게임판 생성
@@ -31,7 +31,7 @@ def draw_stone():
     for y in range(16):
         for x in range(16):
             if board[y][x] > 0:
-                background.blit(image_omok[board[y][x]], (x*42+35-21, y*42+93-21))
+                background.blit(image_omok[board[y][x]], (x*42+35-21, y*42+97-21))
                     
 #변수정의
 stone = 1
@@ -43,9 +43,9 @@ cursor_y = 0
 #마우스 위치 보드판형식으로 바꾸기
 def mousepos() :
     global mouse_x, mouse_y, m_x, m_y
-    if 14 <= mouse_x and mouse_x < 14 + 42 * 16 and 36 <= mouse_y and mouse_y < 36 + 42 * 16:
+    if 14 <= mouse_x and mouse_x < 14 + 42 * 16 and 76 <= mouse_y and mouse_y < 76 + 42 * 16:
         m_x = int((mouse_x - 14) / 42)
-        m_y = int((mouse_y - 36) / 42)
+        m_y = int((mouse_y - 76) / 42)
 
 #승리 검증
 def check():
@@ -111,9 +111,9 @@ while play:
         if event.type == pygame.MOUSEMOTION:
             mouse_x, mouse_y = pygame.mouse.get_pos()
             mousepos()
-            cursor_x = m_x*42+35-23
-            cursor_y = m_y*42+93-23
-        if event.type == pygame.MOUSEBUTTONDOWN :
+            cursor_x = m_x*42+35-27
+            cursor_y = m_y*42+97-27
+        if event.type == pygame.MOUSEBUTTONDOWN and board[m_y][m_x] == 0:
             if event.button == 1 :
                 if stone == 1 :
                     board[m_y][m_x] = 1
